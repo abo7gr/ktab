@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كتيب عن اليمن السعيد</title>
+    <style>
+        /* استيراد خط عربي أصيل من Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700;800&display=swap');
+
+        :root {
+            /* ألوان الهوية اليمنية (العقيق، الطين، الذهب، والنقوش التراثية) */
+            --primary-carnelian: #8B0000; /* أحمر عقيقي */
+            --clay-brown: #C86D51;       /* لون الطين والآجر */
+            --gold-accent: #D4AF37;       /* ذهبي يمني */
+            --dark-wood: #2D1E18;         /* بني خشبي داكن */
+            --white-gypsum: #FAF8F5;      /* الأبيض الجصي/القمرية */
+            --light-bg: #F5EFEB;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-wood);
+            line-height: 1.8;
+            background-image: radial-gradient(var(--clay-brown) 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+            opacity: 0.98;
+        }
+
+        /* الإطار الخارجي للكتاب - مستوحى من زخارف القمرية الصنعانية */
+        .book-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: var(--white-gypsum);
+            border: 12px solid var(--primary-carnelian);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+            position: relative;
+            outline: 4px solid var(--gold-accent);
+            outline-offset: -8px;
+        }
+
+        /* زخرفة العقد والقمريات في أعلى الصفحة */
+        .header-frame {
+            text-align: center;
+            border-bottom: 3px double var(--gold-accent);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+            position: relative;
+        }
+
+        .header-frame::after {
+            content: "❖ ❖ ❖";
+            display: block;
+            color: var(--primary-carnelian);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        h1 {
+            font-family: 'Amiri', serif;
+            color: var(--primary-carnelian);
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--clay-brown);
+            font-weight: 600;
+        }
+
+        /* فصول وأقسام الكتاب */
+        .section {
+            margin-bottom: 35px;
+            background: #ffffff;
+            padding: 25px;
+            border-right: 5px solid var(--primary-carnelian);
+            border-radius: 6px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-family: 'Amiri', serif;
+            color: var(--primary-carnelian);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--light-bg);
+            padding-bottom: 8px;
+        }
+
+        h2::before {
+            content: "✦";
+            color: var(--gold-accent);
+            font-size: 1.5rem;
+        }
+
+        p {
+            font-size: 1.05rem;
+            text-align: justify;
+            color: #4A3B32;
+        }
+
+        /* قائمة المميزات والتفاصيل */
+        ul {
+            list-style: none;
+            padding-right: 10px;
+            margin-top: 10px;
+        }
+
+        li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 12px;
+            font-size: 1.05rem;
+        }
+
+        li::before {
+            content: "❖";
+            position: absolute;
+            right: 0;
+            color: var(--clay-brown);
+            font-size: 0.9rem;
+        }
+
+        /* بطاقات الإحصائيات والمعلومات السريعة */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .stat-card {
+            background-color: var(--white-gypsum);
+            border: 1px solid var(--gold-accent);
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .stat-card .number {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--primary-carnelian);
+            font-family: 'Amiri', serif;
+        }
+
+        .stat-card .label {
+            font-size: 0.95rem;
+            color: var(--dark-wood);
+        }
+
+        /* الفوتر والتوقيع التراثي */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--gold-accent);
+            font-family: 'Amiri', serif;
+            color: var(--clay-brown);
+            font-size: 1.1rem;
+        }
+
+        /* التجاوب مع الشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .book-container {
+                padding: 20px;
+                margin: 10px;
+                border-width: 6px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-container">
+        
+        <!-- غلاف/رأس الكتاب -->
+        <header class="header-frame">
+            <h1>الجمهورية اليمنية</h1>
+            <div class="subtitle">مُهجة العرب ومَهد الحضارات - كتيب تعريف شامل</div>
+        </header>
+
+        <!-- الفصل الأول: التعريف باليمن -->
+        <section class="section">
+            <h2>تعريف عن اليمن</h2>
+            <p>
+                **اليمن** (أو اليمن السعيد) هي دولة عربية إسلامية تقع في جنوب غرب شبه الجزيرة العربية. تُعد اليمن من أقدم مراكز الحضارة في العالم القديم، حيث احتضنت حضارات سبأ، ومَعين، وحِمْيَر، قتبان، وحضرموت. يُعرف الشعب اليمني بأصالته، وكرمه، وتمسكه بتراثه وثقافته الغنية العريقة التي تتجلى في معماره الفريد وفنونه الشعبية.
+            </p>
+        </section>
+
+        <!-- الفصل الثاني: الموقع الجغرافي -->
+        <section class="section">
+            <h2>الموقع الجغرافي والاستراتيجي</h2>
+            <p>
+                تمتلك اليمن موقعاً استراتيجياً وهاماً على خريطة العالم:
+            </p>
+            <ul>
+                <li><strong>الموقع:</strong> تقع في أقصى جنوب غرب قارة آسيا في جنوب شبه الجزيرة العربية.</li>
+                <li><strong>الحدود:</strong> تحدها المملكة العربية السعودية من الشمال، وسلطنة عمان من الشرق، ويحدها البحر الأحمر من الغرب، وخليج عدن وبحر العرب من الجنوب.</li>
+                <li><strong>المنافذ البحرية:</strong> تشرف اليمن على مضيق "باب المندب" الاستراتيجي، الذي يُعد واحداً من أهم الممرات المائية في العالم لنقل النفط والتجارة الدولية.</li>
+                <li><strong>الجزر:</strong> تتبعها أكثر من 200 جزيرة، أشهرها أرخبيل "سقطرى" المتميز ببيئته الفريدة.</li>
+            </ul>
+        </section>
+
+        <!-- الفصل الثالث: التعداد السكاني والمساحة -->
+        <section class="section">
+            <h2>السكان والمساحة</h2>
+            <p>
+                يتميز المجتمع اليمني بأنه مجتمع فتيّ وغني بالتنوع الثقافي والجغرافي.
+            </p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="number">~ 34.5 مليون</div>
+                    <div class="label">التعداد السكاني (تقديرات)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">555,000 كم²</div>
+                    <div class="label">المساحة الإجمالية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">صنعاء</div>
+                    <div class="label">العاصمة التاريخية</div>
+                </div>
+                <div class="stat-card">
+                    <div class="number">عدن</div>
+                    <div class="label">العاصمة الاقتصادية المؤقتة</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- الفصل الرابع: أبرز المميزات -->
+        <section class="section">
+            <h2>أبرز مميزات اليمن</h2>
+            <ul>
+                <li><strong>المعمار الفريد:</strong> ناطحات السحاب الطينية في "شبام حضرموت" (ناطحات سحاب الصحراء) والقمريات الصنعانية الملتقطة لألوان الطيف.</li>
+                <li><strong>التنوع البيئي والمناخي:</strong> من الجبال الشاهقة (مثل جبل النبي شعيب) إلى الشواطئ الساحلية والجزر والصحاري.</li>
+                <li><strong>جزيرة سقطرى:</strong> إحدى عجائب الطبيعة والمدرجة ضمن التراث العالمي لليونسكو، وتشتهر بشجرة "دم الأخوين" الفريدة.</li>
+                <li><strong>المنتجات الشهيرة:</strong> البن اليمني الأصيل (المُخا Mochaccino)، العسل الجرداني والعصيمي، والعقيق اليمني ذو الألوان الفريدة.</li>
+                <li><strong>التاريخ الممتد:</strong> سد مأرب القديم، عرش بلقيس، والمدن التاريخية المسجلة عالمياً.</li>
+            </ul>
+        </section>
+
+        <!-- خاتمة -->
+        <footer>
+            <p>❖ تم تصميم هذا الكتيب المستوحى من الهوية اليمنية الأصيلة ❖</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
